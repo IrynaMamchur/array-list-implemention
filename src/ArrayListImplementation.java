@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class ArrayListImplementation {
 
     int[] array;
-    private int size;
+    int size;
 
 
     public ArrayListImplementation(int capacity) { // размер массива
@@ -29,16 +29,16 @@ public class ArrayListImplementation {
         array = newArray; //старый массив удалится сам
     }
 
-    public void isSize() {
-        size = 0;
-        for (int i = 0; i < array.length; i++) {
-            size++;
-        }
-        System.out.println(size);
+    public int isSize() {
+        // size = 0;
+       // for (int i = 0; i < array.length; i++) {
+        //    size++;
+       // }
+        return size;
     }
 
     public void isPrint() {
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) { // лучше size тогда нули не выводятся
             if (i == 0) {
                 System.out.print("[" + array[i] + ", ");
             }
@@ -54,20 +54,24 @@ public class ArrayListImplementation {
     }
 
     public void isRemove(int j) {
-        array[j] = 0;
-        for (int i = j + 1; i < array.length; i++) {
-            array[i - 1] = array[i];
+        for (int i = j; i < size-1; i++) {
+            array[i] = array[i+1];
         }
-        array[array.length - 1] = 0;
-    }
+        array[size - 1] = 0;
+        size--;
+    } // проверить
 
     public void isAdd(int j, int value) {
+ if (array.length == size) {
+     grow();
+ }
 
-        for (int i = array.length - 2; i >= j; i--) {
+        for (int i = size - 2; i >= j; i--) {
             array[i + 1] = array[i];
 
         }
         array[j] = value;
+        size++;
     }
 
 }

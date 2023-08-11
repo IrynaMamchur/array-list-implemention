@@ -27,7 +27,20 @@ public class Main {
         list.isRemove(6);
         System.out.println(Arrays.toString(list.array));
 
-        list.isAdd(0, 15);
+        list.isAdd(3, 15);
         System.out.println(Arrays.toString(list.array));
+
+        TreeSetImplementation treeSetImplementation = new TreeSetImplementation();
+        treeSetImplementation.add(1);
+        treeSetImplementation.add(10);
+        treeSetImplementation.add(100);
+
+        System.out.println(treeSetImplementation.root);
+        System.out.print(treeSetImplementation.root.left + "  ");
+        System.out.println(treeSetImplementation.root.right);
+
+        System.out.print(treeSetImplementation); // дописать
+
+
     }
 }
